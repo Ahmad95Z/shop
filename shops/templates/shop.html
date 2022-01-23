@@ -157,24 +157,16 @@
                                         <h6>{{product.title}}</h6>
                                     </a>
                                 </div>
-                                {%endfor%}
-                                <!-- Ratings & Cart -->
-                                <div class="ratings-cart text-right">
-                                    <div class="ratings">
-                                        <i class="fa fa-star" aria-hidden="true"></i>
-                                        <i class="fa fa-star" aria-hidden="true"></i>
-                                        <i class="fa fa-star" aria-hidden="true"></i>
-                                        <i class="fa fa-star" aria-hidden="true"></i>
-                                        <i class="fa fa-star" aria-hidden="true"></i>
-                                    </div>
-                                    <div class="cart">
-                                        <a href="cart.html" data-toggle="tooltip" data-placement="left" title="Add to Cart"><img src="{{url_for('static',filename='img/core-img/cart.png')}}" alt=""></a>
-                                    </div>
+                                <div class="cart">
+                                    <a href="{{url_for('cart')}}" data-toggle="tooltip" data-placement="left" title="Add to Cart"><img src="img/core-img/cart.png" alt=""></a>
+
                                 </div>
+                                
                             </div>
                         </div>
+                        {%endfor%}
                     </div>
-      
+                </div> 
                 <div class="row">
                     <div class="col-12">
                         <!-- Pagination -->
