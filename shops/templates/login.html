@@ -1,0 +1,39 @@
+{% extends 'base.html' %}
+{% block content %}
+<div class="cart-table-area section-padding-100">
+    <div class="container-fluid">
+        <div class="row">
+            <div class="col-12 col-lg-8">
+                <div class="checkout_details_area mt-50 clearfix">
+
+                    <div class="cart-title">
+                        <h2>Login</h2>
+                    </div>
+                    <form action="#" method="post">
+                        <div class="row">
+                            <form class="row login_form" action="contact_process.php" method="POST" id="contactForm" novalidate="novalidate">
+                            <div class="col-12 mb-3">
+								<input type="email" class="form-control" id="email" name="email" placeholder="Email" onfocus="this.placeholder = ''" onblur="this.placeholder = 'Email'">
+                            </div>
+
+                            <div class="col-12 mb-3">
+								<input type="password" class="form-control" id="Password" name="password" placeholder="Password" onfocus="this.placeholder = ''" onblur="this.placeholder = 'Password'">
+                            </div>
+                            <div class="col-12">
+                                <div class="custom-control custom-checkbox d-block mb-2">
+                                    <div class="creat_account">
+                                        <input type="checkbox" id="f-option2" name="selector">
+                                        <label for="f-option2">Keep me logged in</label>
+								</div>
+							</div>
+								<button type="submit" value="submit"class="btn amado-btn w-100">Log In</button>
+							</div>
+                        </form>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+</div>
+{% endblock %}
