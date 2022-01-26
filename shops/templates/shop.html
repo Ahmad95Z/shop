@@ -143,24 +143,22 @@
                         <div class="single-product-wrapper">
                             <!-- Product Image -->
                             <div class="product-img">
-                                <img src="{{url_for('static', filename='img/product-img/' + product.image)}}" alt="">
-                            
-                            </div>
-
+                                <img src="{{url_for('static', filename='img/product-img/' + product.image)}}" alt=""> 
+                            </div> 
                             <!-- Product Description -->
                             <div class="product-description d-flex align-items-center justify-content-between">
                                 <!-- Product Meta Data -->
                                 <div class="product-meta-data">
                                     <div class="line"></div>
                                     <p class="product-price">${{product.price}}</p>
-                                    <a href="{{ url_for('product_detail', product_id=product.id) }}"    ></a>
+                                    <a href="{{url_for ('product_detail', product_id = product.id) }}">
                                         <h6>{{product.title}}</h6>
                                     </a>
                                 </div>
 
                                     </div>
                                     <div class="cart">
-                                        <a href="{{url_for('cart')}}" data-toggle="tooltip" data-placement="left" title="Add to Cart"><img src="img/core-img/cart.png" alt=""></a>
+                                        <a href="{{url_for ('cart') }}" data-toggle="tooltip" data-placement="left" title="Add to Cart"><img src="{{ url_for ('static', filename = 'img/core-img/cart.png')}}" alt=""></a>
                                     </div>
                                 </div>
                             </div>
@@ -195,6 +193,7 @@
         </div>
     </section>
     {%endblock%}
+
     <!-- ##### Newsletter Area End ##### -->
 
 

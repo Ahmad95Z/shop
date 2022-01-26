@@ -18,9 +18,6 @@ def index():
 def home():
     return render_template ('index.html')
 
-@app.route('/product')
-def product():
-    return render_template ('product-details.html')
 
 @app.route('/shop')
 def shop():
@@ -64,8 +61,7 @@ def logout():
         logout_user()
         return redirect(url_for('index'))
 
-
 @app.route('/products/<int:product_id>')
 def product_detail(product_id):
     product = Product.query.get(product_id)
-    return render_template('product_detail.html', product=product)
+    return render_template('product-details.html', product=product)
