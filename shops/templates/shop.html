@@ -153,7 +153,7 @@
                                 <div class="product-meta-data">
                                     <div class="line"></div>
                                     <p class="product-price">${{product.price}}</p>
-                                    <a href="{{url_for('products',product_id=product.id)}}">
+                                    <a href="{{ url_for('product_detail', product_id=product.id) }}"    ></a>
                                         <h6>{{product.title}}</h6>
                                     </a>
                                 </div>

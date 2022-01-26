@@ -71,7 +71,7 @@
                 <ul>
                     <li class="active"><a href="{{url_for('index')}}">Главная</a></li>
                     <li><a href="{{url_for('shop')}}">Магазин</a></li>
-                    <li><a href="{{url_for('products', product_id=product.id)}}">Товар</a></li>
+                    <li><a href="{{url_for('product')}}">Товар</a></li>
                     <li><a href="{{url_for('cart')}}">Корзина</a></li>
                     <li><a href="{{url_for('checkout')}}">Посмотреть</a></li>
                     {% if current_user.isAdmin %}

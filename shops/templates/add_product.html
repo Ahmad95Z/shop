@@ -1,12 +1,39 @@
 {% extends 'base.html' %}
 {% block content %}
-<form action="" method="POST" enctype="multipart/form-data">
-    <input type="text" name="title" placeholder="Название товара" required><br>
-    <input type="text" name="description" placeholder="Описание" required><br>
-    <input type="number" min="1" name="price" placeholder="Цена товара" required><br>
-    <input type="text" name="category" placeholder="Категория товара" required><br>
-    <input type="text" name="availibility" placeholder="Наличие" required><br>
-    <input type="file" name="image" required>
-    <input type="submit" value="Добавить товар">
-    </form>
-{% endblock %}
+<div class="cart-table-area section-padding-100">
+    <div class="container-fluid">
+        <div class="row">
+            <div class="col-12 col-lg-8">
+                <div class="checkout_details_area mt-50 clearfix"></div>
+                    <form action="#" method="POST"  enctype="multipart/form-data">
+                        <div class="row"></div>
+                            <div class="col-12 mb-3">
+								<input type="text" name="title"  placeholder="Название товара" required >
+                            </div>
+
+                            <div class="col-12 mb-3">
+								<input type="text" name="description" placeholder="Описание" required>
+                            </div>
+                            <div class="col-12 mb-3">
+								<input type="number" min="1" name="price" placeholder="Цена товара" required>
+                            </div>
+                            <div class="col-12 mb-3">
+								<input type="text" name="category" placeholder="Категория товара" required >
+                            </div>
+                
+                            <div class="col-12 mb-3">
+								<input type="text" name="availibility" placeholder="Наличие" required>
+                            </div>
+                            <div class="col-12 mb-3">
+								<input type="file" name="image" required>
+                            </div>
+								<button type="submit" value="submit"class="btn amado-btn w-100">Добавить товар</button>
+							</div>
+                        </form>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    {% endblock  %} 
+   
