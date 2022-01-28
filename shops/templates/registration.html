@@ -1,0 +1,65 @@
+{% extends 'base.html' %}
+{% block content %}
+<div class="cart-table-area section-padding-100">
+    <div class="container-fluid">
+        <div class="row">
+            <div class="col-12 col-lg-8">
+                <div class="checkout_details_area mt-50 clearfix">
+
+                    <div class="cart-title">
+                        <h2>Регистрация</h2>
+                    </div>
+                    <form action="#" method="post">
+                        <div class="row">
+                            <form class="row login_form" action="contact_process.php" method="POST" id="contactForm" novalidate="novalidate">
+                               {{ form.hidden_tag() }}
+                            <div class="col-12 mb-3">
+                            {% if form.email.errors %}
+                            {{ form.email(class="form-control form-control-lg is-invalid") }}
+                            <div class="invalid-feedback">
+                                {% for error in form.email.errors %}
+                                <span>{{ error }} </span>
+                                {% endfor %}
+                            </div>
+                            {% else %}
+                            {{ form.email.(class="form-control" , placeholder='Введите ваш email')}}
+                            {% endif %}
+                            </div>
+                            <div class="col-12 mb-3">
+                                {% for error in form.confirm_password.errors %}
+                                {{ form.confirm_password(class="form-control form-control-lg is-invalid",placeholder='Введите пароль') }}
+                            <div class="invalid-feedback">
+                                {% for error in form.password.errors %}
+                                <span>{{ error }} </span>
+                                {% endfor %}
+                            </div>
+                            {% else %}
+                            {{ form.password.(class="form-control" , placeholder='Введите пароль')}}
+                            {% endif %}
+                            <div class="col-12 mb-3">
+                                {% for error in form.confirm_password.errors %}
+                                {{ form.confirm_password(class="form-control form-control-lg is-invalid",placeholder='Подтвердите пароль') }}
+                                <div class="invalid-feedback">
+                                    {% for error in form.confirm_password.errors %}
+                                    <span>{{ error }} </span>
+                                    {% endfor %}
+                                </div>
+                                {% else %}
+                                {{ form.confirm_password.(class="form-control" , placeholder='Подтвердите пароль')}}
+                                {% endif %}
+								
+                            </div>
+
+                        
+							</div>
+                            <div  class="col-12 mb-3">
+                            {{ form.submit.(class="form-control" )}}
+                        </div>
+                            <a class="button button-account" href="{{url_for('login')}}">У меня уже есть аккаунт</a>
+                        </form>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+{% endblock %}

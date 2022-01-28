@@ -72,16 +72,19 @@
                 <ul>
                     <li class="active"><a href="{{url_for('index')}}">Главная</a></li>
                     <li><a href="{{url_for('shop')}}">Магазин</a></li>
+                    <!-- {% if product in products%} -->
                     <li><a href="{{url_for ('product_detail', product_id = product.id) }}">Товар</a></li>
+                    <!-- {% endif %} -->
                     <li><a href="{{url_for('cart')}}">Корзина</a></li>
                     <li><a href="{{url_for('checkout')}}">Посмотреть</a></li>
                     {% if current_user.isAdmin %}
-                    <li><a href="{{url_for('add_product')}}">Добавить товар</a></li>
+                    <li><a href="{{url_for('add_product')}}">Добавить продукт</a></li>
                     {% endif %}
                     {% if current_user.is_authenticated %}
                     <li><a href="{{url_for('logout')}}">Выйти</a></li>
                     {% else %}
                     <li><a href="{{url_for('login')}}">Войти</a></li>
+                    <li><a href="{{url_for('registration')}}">Регистрация</a></li>
                     {% endif %}
                 </ul>
             </nav>

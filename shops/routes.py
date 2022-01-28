@@ -2,12 +2,15 @@
 import email
 import imp
 import os
+from click import password_option
 from werkzeug.utils import secure_filename
 from shops import app
-from flask import render_template, request, redirect, url_for
+from flask import render_template, request, redirect, url_for, flash
+from shops import forms
 from shops.models import Product, db , User
 from PIL import Image
 from flask_login import login_user, logout_user, current_user
+from shops.forms import RegistrationForm
 
 
 @app.route('/')
@@ -65,3 +68,17 @@ def logout():
 def product_detail(product_id):
     product = Product.query.get(product_id)
     return render_template('product-details.html', product=product)
+
+@app.route('/registration')
+def registration():
+    if current_user.is_authenticated:
+        return redirect  (url_for('index'))
+    
+    form= RegistrationForm()
+    if form.validate_on_submit():
+        user = User(email=form.email.data, password=form.password.data)
+        db.session.add(user)
+        db.session.commit()
+        flash('Вы успешно зарегистрировались','succsess')
+        return redirect (url_for('login'))
+    return render_template ('registration.html', form=form)
