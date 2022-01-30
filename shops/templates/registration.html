@@ -22,22 +22,22 @@
                                 {% endfor %}
                             </div>
                             {% else %}
-                            {{ form.email.(class="form-control" , placeholder='Введите ваш email')}}
+                            {{ form.email(class="form-control form-control-lg is-invalid" , placeholder='Введите ваш email')}}
                             {% endif %}
                             </div>
                             <div class="col-12 mb-3">
-                                {% for error in form.confirm_password.errors %}
-                                {{ form.confirm_password(class="form-control form-control-lg is-invalid",placeholder='Введите пароль') }}
+                                {% if form.password.errors %}}
+                                {{ form.password(class="form-control form-control-lg is-invalid",placeholder='Введите пароль') }}
                             <div class="invalid-feedback">
                                 {% for error in form.password.errors %}
                                 <span>{{ error }} </span>
                                 {% endfor %}
                             </div>
                             {% else %}
-                            {{ form.password.(class="form-control" , placeholder='Введите пароль')}}
+                            {{ form.password(class="form-control" , placeholder='Введите пароль')}}
                             {% endif %}
                             <div class="col-12 mb-3">
-                                {% for error in form.confirm_password.errors %}
+                                {% if form.confirm_password.errors %}
                                 {{ form.confirm_password(class="form-control form-control-lg is-invalid",placeholder='Подтвердите пароль') }}
                                 <div class="invalid-feedback">
                                     {% for error in form.confirm_password.errors %}
@@ -45,7 +45,7 @@
                                     {% endfor %}
                                 </div>
                                 {% else %}
-                                {{ form.confirm_password.(class="form-control" , placeholder='Подтвердите пароль')}}
+                                {{ form.confirm_password(class="form-control" , placeholder='Подтвердите пароль')}}
                                 {% endif %}
 								
                             </div>
@@ -53,7 +53,7 @@
                         
 							</div>
                             <div  class="col-12 mb-3">
-                            {{ form.submit.(class="form-control" )}}
+                            {{ form.submit(class="button btn amado-btn w-100" )}}
                         </div>
                             <a class="button button-account" href="{{url_for('login')}}">У меня уже есть аккаунт</a>
                         </form>
