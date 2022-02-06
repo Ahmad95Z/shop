@@ -37,16 +37,16 @@
                             {{ form.password(class="form-control" , placeholder='Введите пароль')}}
                             {% endif %}
                             <div class="col-12 mb-3">
-                                {% if form.confirm_password.errors %}
-                                {{ form.confirm_password(class="form-control form-control-lg is-invalid",placeholder='Подтвердите пароль') }}
-                                <div class="invalid-feedback">
-                                    {% for error in form.confirm_password.errors %}
-                                    <span>{{ error }} </span>
-                                    {% endfor %}
-                                </div>
-                                {% else %}
-                                {{ form.confirm_password(class="form-control" , placeholder='Подтвердите пароль')}}
-                                {% endif %}
+                                {% if form.password.errors %}}
+                                {{ form.confirm_password(class="form-control form-control-lg is-invalid",placeholder='Подвердите пароль') }}
+                            <div class="invalid-feedback">
+                                {% for error in form.confirm_password.errors %}
+                                <span>{{ error }} </span>
+                                {% endfor %}
+                            </div>
+                            {% else %}
+                            {{ form.confirm_password(class="form-control" , placeholder='Подвердите пароль')}}
+                            {% endif %}
 								
                             </div>
 

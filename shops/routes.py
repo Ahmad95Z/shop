@@ -69,16 +69,15 @@ def product_detail(product_id):
     product = Product.query.get(product_id)
     return render_template('product-details.html', product=product)
 
-@app.route('/registration')
+@app.route('/registration', methods=['GET', 'POST'])
 def registration():
     if current_user.is_authenticated:
-        return redirect  (url_for('index'))
-    
-    form= RegistrationForm()
+        return redirect(url_for('index'))
+    form = RegistrationForm()
     if form.validate_on_submit():
         user = User(email=form.email.data, password=form.password.data)
         db.session.add(user)
         db.session.commit()
-        flash('Вы успешно зарегистрировались','succsess')
-        return redirect (url_for('login'))
-    return render_template ('registration.html', form=form)
+        flash('Регсистрация прошла успешно!', 'success')
+        return redirect(url_for('login'))
+    return render_template('registration.html', form=form)
