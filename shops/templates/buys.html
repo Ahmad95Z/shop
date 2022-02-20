@@ -1,0 +1,14 @@
+{% extends 'base.html' %}
+{% block content %}
+<form class="cart clearfix" method="POST">
+    <div class="cart-btn d-flex mb-50">
+{% for buy in buys %}
+        {{ buy.name }}
+        {{ buy.email }}
+        {{ buy.adress }}
+        {{ buy.product_id }}
+        <br>
+    {% endfor %}
+</div>
+</form>
+{% endblock %}

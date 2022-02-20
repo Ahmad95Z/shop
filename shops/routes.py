@@ -7,7 +7,7 @@ from werkzeug.utils import secure_filename
 from shops import app
 from flask import render_template, request, redirect, url_for, flash
 from shops import forms
-from shops.models import Product, db , User
+from shops.models import Product, db , User,Buy
 from PIL import Image
 from flask_login import login_user, logout_user, current_user
 from shops.forms import RegistrationForm
@@ -81,3 +81,29 @@ def registration():
         flash('Регсистрация прошла успешно!', 'success')
         return redirect(url_for('login'))
     return render_template('registration.html', form=form)
+
+@app.route('/products/<int:product_id>/buy', methods=['GET', 'POST'])
+def buy(product_id):
+    product = Product.query.get(product_id)
+    if request.method == "POST":
+        f = request.form
+        b = Buy(name=f.get('name'), adress=f.get('adress'), email=f.get(
+            'email'), product=product)
+        db.session.add(b)
+        db.session.commit()
+        return redirect ('/buys')
+    return render_template('buy.html')
+
+
+@app.route('/buys')
+def buys():
+    buys = Buy.query.all()
+    return render_template('buys.html', buys=buys)
+
+
+@app.route('/shops/<int:product_id>/del/')
+def product_delete(product_id):
+        product = Product.query.get_or_404(product_id)
+        db.session.delete(product)
+        db.session.commit()
+        return redirect ('/shop')
